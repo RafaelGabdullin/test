@@ -1,5 +1,6 @@
 package com.example.UntitledTestSuite;
 
+import com.example.UntitledTestSuite.Entities.AccountData;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +11,8 @@ import java.time.Duration;
 
 public class TestBase {
     protected WebDriver driver;
+
+    AccountData data = new AccountData("+89274288749", "chulpan2003R");
     protected String baseUrl;
     protected boolean acceptNextAlert = true;
     protected StringBuffer verificationErrors = new StringBuffer();

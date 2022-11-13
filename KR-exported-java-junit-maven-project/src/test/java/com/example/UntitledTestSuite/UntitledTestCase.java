@@ -3,6 +3,8 @@ package com.example.UntitledTestSuite;
 import java.time.Duration;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
+import com.example.UntitledTestSuite.Entities.AccountData;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -22,7 +24,7 @@ public class UntitledTestCase extends TestBase {
 //    Открытые главного экрана
     openHomePage();
 //    Авторизация
-    login();
+    login(data);
 //  добавление сущности
     addProductToCart();
 //    изменение сущности
@@ -52,16 +54,16 @@ public class UntitledTestCase extends TestBase {
   }
 
 
-  private void login() {
+  private void login(AccountData data) throws InterruptedException{
     driver.findElement(By.xpath("//main[@id='main-page']/div/header/div/div/div[3]/a/i")).click();
     WebElement phoneInput = driver.findElement(By.xpath("/html/body/div/main/div/div[5]/div/div/div/form/div[1]/div/input"));
     phoneInput.click();
     phoneInput.clear();
-    phoneInput.sendKeys("+79274288749");
+    phoneInput.sendKeys(data.username);
     WebElement passwordInput = driver.findElement(By.xpath("/html/body/div/main/div/div[5]/div/div/div/form/div[2]/div/input"));
     passwordInput.click();
     passwordInput.clear();
-    passwordInput.sendKeys("chulpan2003R");
+    passwordInput.sendKeys(data.password);
     WebElement signIN = driver.findElement(By.xpath("/html/body/div/main/div/div[5]/div/div/div/form/button"));
     signIN.click();
   }

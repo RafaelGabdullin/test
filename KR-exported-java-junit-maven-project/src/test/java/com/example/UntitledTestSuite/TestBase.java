@@ -8,6 +8,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
+import static org.junit.Assert.fail;
+
 
 public class TestBase {
     protected WebDriver driver;
@@ -69,10 +71,10 @@ public class TestBase {
 
     @After
     public void tearDown() throws Exception {
-//    driver.quit();
-//    String verificationErrorString = verificationErrors.toString();
-//    if (!"".equals(verificationErrorString)) {
-//      fail(verificationErrorString);
-//    }
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
     }
 }

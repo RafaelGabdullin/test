@@ -17,6 +17,16 @@ public class UntitledTestCase extends TestBase {
     openHomePage();
 //    Авторизация
     login(data);
+
+  }
+  @Test
+  public void testUntitledTestCaseTwo() throws Exception{
+//    Развернем окно на полный экран
+    driver.manage().window().maximize();
+//    Открытые главного экрана
+    openHomePage();
+//    Авторизация
+    login(data);
 //  добавление сущности
     addProductToCart(product);
 //    изменение сущности
